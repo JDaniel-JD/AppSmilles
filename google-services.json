@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141152242747",
+    "project_id": "partiu-trips",
+    "storage_bucket": "partiu-trips.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141152242747:android:d216e71c5e74c9c475e01e",
+        "android_client_info": {
+          "package_name": "com.BrueGabi.PartiuTrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141152242747-ca1gqmakfo1mpce684gpgfbd41r5bnqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRfstLXfv-km0afwevs7aCm8I4arHeEt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141152242747-ca1gqmakfo1mpce684gpgfbd41r5bnqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
