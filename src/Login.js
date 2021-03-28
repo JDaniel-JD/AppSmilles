@@ -43,10 +43,12 @@ const Login = ({ navigation }) => {
         <View style={style.simbolo}>
           <Image source={require("../icons/simbolo.png")} />
         </View>
-
+         
         <View style={{ alignItems: "center" }}>
-          <Text style={style.titulo1}>Nome da</Text>
-          <Text style={style.titulo2}>Aplicação</Text>
+          <View style={{ alignItems: "center" }}>
+            <Text style={style.titulo1}>Travel Maker</Text>
+            <Image style={{ height: 600, width: 600,opacity:0.3, alignSelf: "center",alignItems: "baseline"}} source={require("../img/globo.png")} />
+          </View>
         </View>
 
       </View>
@@ -78,7 +80,7 @@ const Login = ({ navigation }) => {
         </View>
 
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Image style={{ backgroundColor: "#fff", height: 60, width: 60, borderRadius: 50, marginBottom: 20, marginTop: 20 }} source={require("../icons/image_5.svg")} />
+          <Image style={{ backgroundColor: "#0080FF", height: 50, width: 50, borderRadius: 40, marginBottom: 15, marginTop: 15 }} source={require("../icons/image_5.png")} />
         </View>
 
         <View style={{ flexDirection: "row", alignSelf: "center", flex: 1, justifyContent: "flex-end", marginBottom: 100 }}>
@@ -98,7 +100,7 @@ const Login = ({ navigation }) => {
 const style = StyleSheet.create({
 
   simbolo: {
-    height: "20%",
+    height: "10%",
     alignItems: "baseline",
     justifyContent: "center",
     alignItems: "baseline",
@@ -113,15 +115,11 @@ const style = StyleSheet.create({
   },
 
   titulo1: {
-    fontSize: 55,
-    color: "#5D6D7E",
+    fontSize: 70,
+    color: "#0080FF",
+    alignItems: "center",
+    alignSelf: "center",
     // fontFamily: { fontsLoaded }
-  },
-
-  titulo2: {
-    fontSize: 50,
-    color: "#5D6D7E",
-    fontFamily: 'Amarante_400Regular'
   },
 
   loginIn: {
@@ -148,7 +146,7 @@ const style = StyleSheet.create({
   },
 
   login: {
-    backgroundColor: "#2E4053",
+    backgroundColor: "#0080FF",
     borderTopLeftRadius: 45,
     borderTopRightRadius: 45,
     paddingTop: 10,

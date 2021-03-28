@@ -39,10 +39,12 @@ const Cadastro = ({ navigation }) => {
     <ScrollView style={style.container}>
 
       <View style={style.header} >
-
-        <Text style={style.titulo1}>Nome da</Text>
-        <Text style={style.titulo2}>Aplicação</Text>
-
+      <View style={{ alignItems: "center" }}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={style.titulo1}>Travel Maker</Text>
+            <Image style={{ height: 600, width: 600,opacity:0.3, alignSelf: "center",alignItems: "baseline"}} source={require("../img/globo.png")} />
+          </View>
+        </View>
       </View>
 
       <View style={style.login}>
@@ -56,9 +58,9 @@ const Cadastro = ({ navigation }) => {
             <View style={{ flex: 1, justifyContent: "space-around" }}>
               <TextInput style={style.input} placeholder="Email" placeholderTextColor="#fff" onChangeText={txtEmail => onChangeEmail(txtEmail)} />
               <TextInput style={style.input} placeholder="Senha" placeholderTextColor="#fff" onChangeText={txtPassword => onChangePassword(txtPassword)} />
-              <TextInput style={style.input} placeholder="Senha" placeholderTextColor="#fff" onChangeText={txtConfPassword => onChangeConfPassword(txtConfPassword)} />
+              <TextInput style={style.input} placeholder="Confirme a Senha" placeholderTextColor="#fff" onChangeText={txtConfPassword => onChangeConfPassword(txtConfPassword)} />
               <TouchableHighlight onPress={() => { alert("Fase de Demonstração") }} underlayColor="#1E7987">
-                <Text style={{ alignSelf: "flex-end", color: "#fff", fontSize: 15, marginRight: "10%", marginTop: 10 }}>Esqueci minha senha</Text>
+                {/*}Text style={{ alignSelf: "flex-end", color: "#fff", fontSize: 15, marginRight: "10%", marginTop: 10 }}>Esqueci minha senha</Text>*/}
               </TouchableHighlight>
             </View>
 
@@ -80,7 +82,7 @@ const Cadastro = ({ navigation }) => {
           </View>
 
           <View style={{ height: "20%", alignItems: "center", justifyContent: "center" }}>
-            <Image style={{ backgroundColor: "#fff", height: 60, width: 60, borderRadius: 50 }} source={require("../icons/image_5.svg")} />
+            <Image style={{ backgroundColor: "#0080FF", height: 60, width: 60, borderRadius: 50 }} source={require("../icons/image_5.png")} />
           </View>
 
          {/*<View style={{ flexDirection: "row", alignSelf: "center", height: 30, justifyContent: "flex-end" }}>
@@ -155,7 +157,7 @@ const style = StyleSheet.create({
   },
 
   login: {
-    backgroundColor: "#2E4053",
+    backgroundColor: "#0080FF",
     borderTopLeftRadius: 45,
     borderTopRightRadius: 45,
     height: 784
