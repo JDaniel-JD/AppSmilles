@@ -1,142 +1,122 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Image, TextInput, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Image, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements'
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import DatePicker from "react-native-datepicker"
-import { useNavigation } from "@react-navigation/native"
+import firebase from '../Firebaseconection';
+import { useFonts, Amarante_400Regular } from '@expo-google-fonts/amarante';
+import * as Location from 'expo-location'
 
 
-const Dados = () => {
+import PropTypes from "prop-types"
+import Icon from "react-native-vector-icons/FontAwesome"
+import MapView from 'react-native-maps';
+import MapViewDirections from 'react-native-maps-directions';
+import getDirections from 'react-native-google-maps-directions'
+import { PermissionsAndroid } from 'react-native';
 
-  const navigation = useNavigation()
+import Geocoder from 'react-native-geocoding';
 
-  const [ida, setIda] = useState('')
-  const [volta, setVolta] = useState('')
-  const [imagem, setImagem] = useState('')
-
-
-  const HandIf = () => {
-    navigation.navigate('Bemvindo', { ida: ida, volta: volta, imagem: imagem })
-  }
+const Login = ({ navigation }) => {
 
   return (
 
-    <ScrollView style={style.container}>
+    <ScrollView>
 
       <View style={style.header} >
-
-        <Image source={require("../icons/simbolo.png")} />
-        <Text style={{ fontSize: 28, color: "#5D6D7E", textAlign: "center" }}>Dados da Viagem</Text>
-        <Text style={{ fontSize: 28, color: "#5D6D7E", textAlign: "center" }}></Text>
-
-      </View>
-
-      <View style={style.login}>
-
-        <View style={{ flex: 1, marginBottom: 20, marginTop: 20, }}>
-
-          <View style={style.input}>
-            <TextInput style={{ borderBottomWidth: 1, borderColor: "#fff", fontSize: 20, height: "30%", marginBottom: 20 }} placeholder="Lugar" placeholderTextColor="#fff" onChangeText={txtEmail => onChangeEmail(txtEmail)} />
-            <DatePicker onDateChange={(e) => { setIda(e) }} style={{ borderBottomWidth: 1, borderColor: "#fff", fontSize: 20, height: "30%", width: "100%" }} date={ida} format="DD-MM-YYYY" />
-            <DatePicker onDateChange={(e) => { setVolta(e) }} style={{ borderBottomWidth: 1, borderColor: "#fff", fontSize: 20, height: "30%", width: "100%" }} date={volta} format="DD-MM-YYYY" />
+         
+        <View style={{ alignItems: "center" }}>
+          <View style={{ alignItems: "center" }}>
+            <Text style={style.titulo1}>Dados da Viajem</Text>
+            <Image style={{ height: 600, width: 600,opacity:0.3, alignSelf: "center",alignItems: "baseline"}} source={require("../img/globo.png")} />
           </View>
-
-          <View style={{ height: "50%", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-
-            <View style={{ flexDirection: "column" }}>
-              <TouchableHighlight onPress={() => { setImagem(require('../icons/praia.png')) }} style={{ margin: 10, borderRadius: 20 }} underlayColor="#1E7987">
-                <Image source={require("../icons/praia.png")} />
-              </TouchableHighlight>
-              <TouchableHighlight onPress={() => { setImagem(require("../icons/inverno.png")) }} style={{ margin: 10, borderRadius: 20 }} underlayColor="#1E7987">
-                <Image source={require("../icons/inverno.png")} />
-              </TouchableHighlight>
-            </View>
-
-            <View style={{ flexDirection: "column" }}>
-
-              <TouchableHighlight onPress={() => { setImagem(require("../icons/montanha.png")) }} style={{ margin: 10, borderRadius: 20 }} underlayColor="#1E7987">
-                <Image source={require("../icons/montanha.png")} />
-              </TouchableHighlight>
-
-              <TouchableHighlight onPress={() => { setImagem(require("../icons/cidade.png")) }} style={{ margin: 10, borderRadius: 20 }} underlayColor="#1E7987">
-                <Image source={require("../icons/cidade.png")} />
-              </TouchableHighlight>
-
-            </View>
-
-          </View>
-
-          <View style={{ flex: 1, justifyContent: "center" }} >
-            <Button
-              buttonStyle={style.botao}
-              titleStyle={{ fontSize: 23 }}
-              onPress={HandIf}
-              title={"Criar Viagem"}
-            />
-          </View>
-
         </View>
 
       </View>
 
+      <View style={style.login}>
+        <Text style={{ color: "white", fontSize: 28, alignSelf:"center" }}>Cadastro</Text>
+      </View>
+      <View style={style.header}>
+        <Text>Colocar algo aqui!</Text>
+      </View>
+      
+
     </ScrollView>
 
+    
   )
 };
 
+
 const style = StyleSheet.create({
 
-  container1: {
-    flexDirection: "column",
-    height: "100%"
-  },
-
   header: {
-    flexDirection: "row",
     backgroundColor: "#FBF8F8",
-    height: "15%",
-    alignItems: "baseline",
-    justifyContent: "space-around",
-    paddingTop: 30
+    height: "3%"
 
   },
 
-  simbolo: {
-    alignItems: "baseline",
+  CheckBox: {
+    width: 25,
+    height: 25,
+    borderWidth: 1,
     justifyContent: "center",
-    alignItems: "baseline",
+    alignItems: "center"
+  },
 
+  WrapperCheckBox: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
+
+  LabelCheck: {
+    color: '#fff',
+    marginLeft: 6 // Para que não fique colado ao checkbox
+  },
+
+  titulo1: {
+    fontSize: 50,
+    color: "#0080FF",
+    alignItems: "center",
+    alignSelf: "center",
+    // fontFamily: { fontsLoaded }
+  },
+
+  loginIn: {
+    marginLeft: 24
   },
 
   input: {
     //  backgroundColor:"#fff", 
     width: "80%",
-    height: "20%",
     alignSelf: "center",
-    justifyContent: "center",
-    marginBottom: 30
-
+    borderBottomWidth: 1,
+    borderColor: "#fff",
+    fontSize: 20,
+    marginTop: 50
   },
 
   botao: {
     alignSelf: "center",
     justifyContent: "center",
-    backgroundColor: "#EB6458",
+    backgroundColor: "#1A5276",
     width: "80%",
-    height: "55%",
+    height: "80%",
     borderRadius: 40,
-
   },
 
   login: {
-    backgroundColor: "#1E7987",
+    backgroundColor: "#0080FF",
     borderTopLeftRadius: 45,
     borderTopRightRadius: 45,
-    height: 784
-
-  }
+    paddingTop: 10,
+    paddingBottom: 50,
+    height: 10000
+  },
+  
 
 })
 
 
-export default Dados
+
+export default Login

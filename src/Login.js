@@ -39,10 +39,6 @@ const Login = ({ navigation }) => {
     <ScrollView>
 
       <View style={style.header} >
-
-        <View style={style.simbolo}>
-          <Image source={require("../icons/simbolo.png")} />
-        </View>
          
         <View style={{ alignItems: "center" }}>
           <View style={{ alignItems: "center" }}>
@@ -98,15 +94,6 @@ const Login = ({ navigation }) => {
 
 
 const style = StyleSheet.create({
-
-  simbolo: {
-    height: "10%",
-    alignItems: "baseline",
-    justifyContent: "center",
-    alignItems: "baseline",
-    paddingLeft: 30,
-
-  },
 
   header: {
     backgroundColor: "#FBF8F8",
